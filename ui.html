@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accident Detection System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .status {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .alert {
+      color: red;
+      font-size: 1.5rem;
+      animation: pulse 1s infinite;
+    }
+
+    .safe {
+      color: green;
+      font-size: 1.2rem;
+    }
+
+    .beep {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: orange;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    .sms-status {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .sms-status span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Accident Detection System</h2>
+        <div id="status" class="status safe">Monitoring for Accidents...</div>
+        <div id="beep" class="beep" style="display: none;">🔊 Beep Alert Activated</div>
+        <div class="sms-status">
+          Registered Mobile: <span>‪+91 98765 43210‬</span><br />
+          SMS Status: <span id="sms-status">Not Sent</span>
+        </div>
+        <button class="btn" onclick="simulateAccident()">Simulate Accident</button>
+      </div>
+    
+      <audio id="beep-sound" src="https://www.soundjay.com/buttons/sounds/beep-07.mp3" preload="auto"></audio>
+    
+      <script>
+        function simulateAccident() {
+          document.getElementById("status").innerHTML = "⚠ Accident Detected!";
+          document.getElementById("status").className = "status alert";
+          document.getElementById("beep").style.display = "block";
+          document.getElementById("sms-status").innerText = "Sent";
+    
+          // Play beep sound
+          document.getElementById("beep-sound").play();
+        }
+      </script>
+    
+    </body>
+    </html>

@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-gradient: radial-gradient(circle at top right, #1e1b4b 0%, #030712 60%, #0f051d 100%);
+    --glass-bg: rgba(15, 23, 42, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .light {
+    --bg-gradient: radial-gradient(circle at top right, #e0e7ff 0%, #f8fafc 60%, #fae8ff 100%);
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --card-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.05);
+  }
+
+  body {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    background-attachment: fixed;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Glowing Neon Borders and Texts */
+.neon-text-blue {
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.6), 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.neon-text-red {
+  text-shadow: 0 0 10px rgba(244, 63, 94, 0.6), 0 0 20px rgba(244, 63, 94, 0.3);
+}
+
+.neon-border-red {
+  box-shadow: var(--card-shadow), 0 0 15px rgba(244, 63, 94, 0.4);
+  border-color: rgba(244, 63, 94, 0.6);
+}
+
+.neon-border-indigo {
+  box-shadow: var(--card-shadow), 0 0 15px rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Custom Scrollbar for sleek UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* AntD Style Overrides for Dark/Glass Integration */
+.ant-table {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.ant-table-thead > tr > th {
+  background: rgba(99, 102, 241, 0.1) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid var(--glass-border) !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+
+.ant-table-row:hover > td {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.light .ant-table-row:hover > td {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+.ant-pagination-item-active {
+  border-color: #6366f1 !important;
+  background: rgba(99, 102, 241, 0.2) !important;
+}
+
+.ant-pagination-item-active a {
+  color: #6366f1 !important;
+}
+
+.ant-pagination-item, .ant-pagination-next, .ant-pagination-prev {
+  background: transparent !important;
+  border-color: var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-pagination-item a {
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-content {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-title {
+  color: var(--text-primary) !important;
+}
+
+.ant-modal-close-icon {
+  color: var(--text-secondary) !important;
+}

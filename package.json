@@ -1,0 +1,16 @@
+{
+  "name": "accident-detection-system-root",
+  "version": "1.0.0",
+  "description": "Root workspace controllers for React + FastAPI Accident Detection & Alert System",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix frontend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "python -m uvicorn backend.main:app --reload --port 8000",
+    "dev": "npx concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build:frontend": "npm run build --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
